@@ -18,6 +18,8 @@ jobs:
       matrix:
         language:
           - "ja"
+        php:
+          - "8.3"
 
     steps:
       - name: "Checkout php/doc-${{ matrix.language }}"
@@ -39,5 +41,16 @@ jobs:
           path: "doc-base"
           repository: "php/doc-base"
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          coverage: none
+
+      - run: php -v
+      - run: php -m
+      - run: php -i
+
       - name: "Build documentation for ${{ matrix.language }}"
-        run: "php8.0 doc-base/configure.php --disable-libxml-check --enable-xml-details --redirect-stderr-to-stdout --with-lang=${{ matrix.language }}"
+        run: "php doc-base/configure.php --disable-libxml-check --enable-xml-details --redirect-stderr-to-stdout --with-lang=${{ matrix.language }}"
