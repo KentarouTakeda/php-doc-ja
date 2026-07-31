@@ -121,7 +121,7 @@
   <para>
    <function>range</function> 関数に対して、さまざまな変更が加えられました:
    <simplelist>
-    <member>オブジェクトやリソース、配列を境界の値として渡すと、<exceptionname>TypeError</exceptionname> がスローされるようになりました。</member>
+    <member><type>オブジェクト</type>や<type>リソース</type>、<type>配列</type>を境界の値として渡すと、<exceptionname>TypeError</exceptionname> がスローされるようになりました。</member>
     <member><parameter>step</parameter> に <literal>0</literal> を渡すと、よりわかりやすい <exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
     <member>範囲が増加しているのに、<parameter>step</parameter> に負の値を渡すと、<exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
     <member><parameter>step</parameter> が整数型として解釈できる float の場合、整数型として解釈するようになりました。</member>
