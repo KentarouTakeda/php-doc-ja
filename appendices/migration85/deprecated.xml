@@ -151,11 +151,11 @@
   </sect3>
 
   <sect3 xml:id="migration85.deprecated.core.incrementing-non-numeric-strings">
-   <title>数値でない文字列をインクリメント</title>
+   <title>数値形式でない文字列をインクリメント</title>
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#enact_follow-up_phase_of_the_path_to_saner_incrementdecrement_operators_rfc -->
 
    <simpara>
-    数値でない文字列をインクリメントすることは、推奨されなくなりました。
+    数値形式でない文字列をインクリメントすることは、推奨されなくなりました。
     <function>str_increment</function> を代わりに使ってください。
    </simpara>
 

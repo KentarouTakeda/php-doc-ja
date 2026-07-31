@@ -488,7 +488,7 @@ Making a bowl of raspberry natural yogurt.
     <para>
      PHP 8.0.0 以降では、
      デフォルト値を指定したパラメーターの後に、
-     必須のパラメーターを宣言することは <emphasis>推奨されません</emphasis>。
+     必須のパラメーターを宣言することは <emphasis>非推奨</emphasis>です。
      なぜなら、そのデフォルト値は絶対に使われないからです。
      これは、デフォルト値を削除することで解決できます。
      このルールの唯一の例外は、
@@ -503,8 +503,8 @@ Making a bowl of raspberry natural yogurt.
       <programlisting role="php" annotations="non-interactive">
 <![CDATA[
 <?php
-function foo($a = [], $b) {} // デフォルト値が使われないため、PHP 8.0.0 以降は推奨されません
-function foo($a, $b) {}      // 上のコードと機能的には同じですが、推奨されない警告は発生しません。
+function foo($a = [], $b) {} // デフォルト値が使われないため、PHP 8.0.0 以降は非推奨です
+function foo($a, $b) {}      // 上のコードと機能的には同じですが、非推奨の警告は発生しません。
 
 // PHP 8.1.0以降、$a は暗黙的に必須（必須のパラメータの前にあるため）ですが、
 // デフォルトのパラメータ値が null であるため、暗黙的に nullable とみなされます（PHP 8.4.0で非推奨）。
