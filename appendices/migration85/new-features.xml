@@ -194,14 +194,13 @@ print T1 . PHP_EOL;   // Prints "0"
   </sect3>
 
   <sect3 xml:id="migration85.new-features.core.clone-function">
-   <title>Clone キーワードへの変更</title>
+   <title>clone 関数</title>
 
    <simpara>
-    <link linkend="language.oop5.cloning">clone キーワード</link>
-    は、関数のように振る舞うようになりました。
-    そして、読み取り専用プロパティに clone して値を再代入する際に、
-    新しく <property>$withProperties</property>
-    パラメータが使えるようになりました
+    <link linkend="language.oop5.cloning">clone 言語構造</link>
+    は、関数になりました。
+    そして、新しい <property>$withProperties</property> パラメータにより、
+    clone の際に (読み取り専用) プロパティへ値を再代入できるようになりました。
     <!-- RFC: https://wiki.php.net/rfc/clone_with_v2 -->
    </simpara>
 
@@ -214,7 +213,7 @@ print T1 . PHP_EOL;   // Prints "0"
   <title>cURL</title>
 
   <simpara>
-   複数のリクエストにまたがって持続する
+   複数の PHP リクエストにまたがって持続する
    <link linkend="class.curlsharepersistenthandle">CurlSharePersistentHandle</link>
    のサポートが追加されました。
    これを使うと、より効率的な接続の再利用が安全にできるようになります。
@@ -367,14 +366,14 @@ print T1 . PHP_EOL;   // Prints "0"
 
   <simpara>
    <classname>IntlListFormatter</classname> クラスが追加されました。
-   これは、指定されたロケールで項目のリストをフォーマット、順序付け、
-   句読点を付ける操作を行うためのものです。
+   これは、指定されたロケールで項目のリストのフォーマット、順序付け、
+   句読点の付与を行うためのものです。
    クラス定数として、<constant>IntlListFormatter::TYPE_AND</constant>,
    <constant>IntlListFormatter::TYPE_OR</constant>,
-   <constant>IntlListFormatter::TYPE_UNITS</constant> 演算子と、
+   <constant>IntlListFormatter::TYPE_UNITS</constant> オペランドと、
    <constant>IntlListFormatter::WIDTH_WIDE</constant>,
    <constant>IntlListFormatter::WIDTH_SHORT</constant>,
-   <constant>IntlListFormatter::WIDTH_NARROW</constant> があります。
+   <constant>IntlListFormatter::WIDTH_NARROW</constant> 幅があります。
    このクラスは ICU 67 以降でサポートされます。
   </simpara>
 
@@ -507,8 +506,9 @@ print T1 . PHP_EOL;   // Prints "0"
    <parameter>namespace</parameter> 引数は、
    空でなくても動作するようになりました。
    動作するのは、<parameter>name</parameter> 引数が Clark 記法でなく、かつ
-   QName 形式でもない場合です。
-   これらの場合は、名前空間が href または prefix からそれぞれ取得されるためです。
+   QName 形式でもない場合だけです。
+   Clark 記法または QName 形式の場合は、名前空間が href または prefix から
+   それぞれ取得されるためです。
   </simpara>
 
  </sect2>

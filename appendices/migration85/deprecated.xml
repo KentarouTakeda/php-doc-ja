@@ -96,7 +96,7 @@
    <simpara>
     同じ定数を再宣言することは、推奨されなくなりました。
     これについては既に警告は発生しており、
-    (警告の種類が変わるだけで)それが続くことに注意してください。
+    それが続くことに注意してください。
    </simpara>
 
   </sect3>
@@ -456,7 +456,7 @@
    <function>spl_autoload_unregister</function>
    のコールバック引数に渡すことで、
    すべての autoload の登録を解除することは、推奨されなくなりました。
-   代わりに、<function>spl_autoload_functions</function>
+   代わりに、これが必要な場合は、<function>spl_autoload_functions</function>
    の戻り値を反復処理し、
    それぞれの値に対して <function>spl_autoload_unregister</function> 
    をコールする必要があります。

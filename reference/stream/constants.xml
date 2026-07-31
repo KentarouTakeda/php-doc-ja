@@ -45,7 +45,7 @@
    </term>
    <listitem>
     <simpara>
-     クライアントソケットが、セッションをまたいでも保持されるよう
+     クライアントソケットは、ページの読み込みをまたいでも保持され続ける必要があります。
     </simpara>
    </listitem>
   </varlistentry>
@@ -1039,8 +1039,8 @@
     </term>
     <listitem>
      <simpara>
-      リソースの位置を指定する include path
-      に相対パスを指定すべきことを示します
+      相対パスの場合、リソースの位置を特定するために include_path
+      を使うべきことを示すフラグです
      </simpara>
     </listitem>
    </varlistentry>

@@ -53,7 +53,7 @@
   <sect3 xml:id="migration83.incompatible.core.weakmap-entries-maps-to-itself">
    <title>キーが自分自身を参照している WeakMap のエントリ</title>
    <para>
-    <classname>WeakMap</classname> のエントリには、(おそらく推移的に) キーが自分自身を参照しているものがあります。そのキーが到達できない場合に、循環参照のコレクタがそれを削除できるようになりました。但し、WeakMap をループしている場合を除きます (ループ経由で到達できることは、weak と見なされるためです)。これより前のバージョンでは、こうしたエントリは自動で決して削除されませんでした。
+    <classname>WeakMap</classname> のエントリには、(場合によっては推移的に) キーが自分自身を参照しているものがあります。そのキーが、WeakMap をループする以外の方法では到達できない場合 (ループ経由での到達は、weak と見なされます)、循環参照の収集時にそれを削除できるようになりました。これより前のバージョンでは、こうしたエントリは自動で決して削除されませんでした。
    </para>
   </sect3>
  </sect2>
@@ -62,7 +62,7 @@
   <title>Date</title>
 
   <para>
-   日付・時刻の拡張モジュールでは、<classname>DateError</classname> と <classname>DateException</classname> の階層に、拡張モジュール特有の例外とエラーを追加しました。これは、エラー時に警告や汎用の例外を発生させていた動作を置き換えるものです。これらによって、エラーや例外をチェックする必要がなくなり、エラーハンドリングが改善できます。
+   日付・時刻の拡張モジュールでは、<classname>DateError</classname> と <classname>DateException</classname> の階層に、拡張モジュール特有の例外とエラーを追加しました。これは、エラー時に警告や汎用の例外を発生させていた動作を置き換えるものです。これによって、エラーハンドリングが改善されますが、その代わりにエラーや例外をチェックする必要があります。
   </para>
  </sect2>
 
@@ -82,7 +82,7 @@
   </para>
 
   <para>
-   以前のバージョンでは、<methodname>DOMDocument::createAttributeNS</methodname> は、prefix が既に異なる URI で使われている場合に <constant>DOM_NAMESPACE_ERRNAMESPACE_ERR</constant> <classname>DOMException</classname> をスローしていました。
+   以前のバージョンでは、<methodname>DOMDocument::createAttributeNS</methodname> は、prefix が既に異なる URI で使われている場合に誤って <constant>DOM_NAMESPACE_ERRNAMESPACE_ERR</constant> <classname>DOMException</classname> をスローしていました。
    このバージョンからは、prefix の名前が衝突していた場合でも、異なる prefix を正しく選べるようになりました。
   </para>
 
@@ -146,10 +146,9 @@ range('9', 'A');  // PHP 8.3.0 より前は、[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
   </para>
 
   <para>
-    <function>number_format</function> は、負の
-    <parameter>decimals</parameter> の値を小数点以下
-    <parameter>num</parameter> 桁から <code>abs($decimals)</code>
-    桁に丸めるようになりました。
+    <function>number_format</function> は、<parameter>decimals</parameter>
+    に負の値を指定した場合、<parameter>num</parameter> を小数点より前の
+    <code>abs($decimals)</code> 桁に丸めることで対応するようになりました。
     これより前のバージョンでは、負の <parameter>decimals</parameter>
     は黙って無視されていました。
   </para>
