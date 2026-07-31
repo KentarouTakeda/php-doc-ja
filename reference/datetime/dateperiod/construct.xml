@@ -53,10 +53,9 @@
    (繰り返し回数) のいずれかを指定します。
   </para>
   <para>
-   返されるオブジェクトのクラスは、
-   <parameter>start</parameter> の祖先になるオブジェクトで、
-   <classname>DateTimeImmutable</classname> や
-   <classname>DateTime</classname> に等しくなります。
+   返されるオブジェクトのクラスは、<parameter>start</parameter>
+   オブジェクトの祖先クラスである <classname>DateTimeImmutable</classname>
+   または <classname>DateTime</classname> と同じになります。
   </para>
  </refsect1>
 
@@ -130,7 +129,7 @@
      <term><parameter>options</parameter></term>
      <listitem>
       <para>
-       開始日と終了日に関する振る舞いを制御するビットフィールド
+       開始日と終了日に関する振る舞いを制御するビットフィールド。
       </para>
       <para>
        <constant>DatePeriod::EXCLUDE_START_DATE</constant>

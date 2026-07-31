@@ -477,19 +477,19 @@ x minus one equals 3, or so I hope
       <entry>8.0.0</entry>
       <entry>
        三項演算子 (<literal>? :</literal>) は、
-       どの演算とも結合しなくなりました。
+       結合しない演算子になりました。
        これより前のバージョンでは、左結合でした。
       </entry>
      </row>
      <row>
       <entry>7.4.0</entry>
       <entry>
-       文字列の連結 (<literal>.</literal>) 演算と、
+       文字列の連結 (<literal>.</literal>) 演算の、
        算術演算子の加算/減算
        (<literal>+</literal> および <literal>-</literal>)
        とビットシフト演算子
        (<literal>&lt;&lt;</literal> および <literal>&gt;&gt;</literal>)
-       の優先順位に依存するコードは、推奨されなくなりました。
+       に対する優先順位に依存するコードは、推奨されなくなりました。
        つまり、これらを括弧を使わずに一緒に使うことは推奨されなくなりました。
       </entry>
      </row>

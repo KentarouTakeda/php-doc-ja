@@ -14,7 +14,7 @@
    <methodparam rep="repeat"><type>array</type><parameter>arrays</parameter></methodparam>
   </methodsynopsis>
   <para>
-   前の配列の後ろに配列を追加することにより、
+   前の配列の最後にもう一つの配列の値を追加することにより、
    ひとつまたは複数の配列の要素をマージし、得られた配列を返します。
   </para>
   <para>

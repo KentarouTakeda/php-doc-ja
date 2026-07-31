@@ -132,7 +132,7 @@
     soft-deprecated 扱いになりました。
     代わりに、<link linkend="object.serialize">__serialize()</link> と
     <link linkend="object.unserialize">__unserialize()</link> を使ってください。
-    PHP 7 との互換性が必要な場合は、両方を同時に使ってください。
+    PHP 7 との互換性が必要な場合は、__sleep() や __wakeup() と併用してください。
    </simpara>
 
   </sect3>
@@ -330,7 +330,7 @@
   </simpara>
 
   <para>
-   PDO クラスのドライバ特有の定数は、推奨されなくなりました。
+   PDO クラスのドライバ固有の定数は、推奨されなくなりました。
    影響を受ける定数と、代替は以下のとおりです:
 
    <simplelist>
@@ -381,7 +381,7 @@
   </para>
 
   <para>
-   PDO クラスのドライバ特有のメソッドは、推奨されなくなりました。
+   PDO クラスのドライバ固有のメソッドは、推奨されなくなりました。
    影響を受けるメソッドと、代替は以下のとおりです:
 
    <simplelist>

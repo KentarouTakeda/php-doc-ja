@@ -163,22 +163,22 @@ $results = concat("a", "b");
   </sect3>
 
   <sect3 xml:id="migration85.new-features.core.final-property-promotion">
-   <title>final プロパティと、コンストラクタのプロモーション</title>
+   <title>final プロパティに対するコンストラクタのプロモーション</title>
 
    <simpara>
-    final なプロパティも、
+    final なプロパティにも、
     <link linkend="language.oop5.decon.constructor.promotion">
-    コンストラクタでプロパティに昇格</link> させることができるようになりました。
+    コンストラクタのプロモーション</link> を使えるようになりました。
     <!-- RFC: https://wiki.php.net/rfc/final_promotion -->
    </simpara>
 
   </sect3>
 
   <sect3 xml:id="migration85.new-features.core.casts-in-constexpr">
-   <title>定数式をキャスト</title>
+   <title>定数式でのキャスト</title>
 
    <simpara>
-    定数式をキャストできるようになりました。
+    定数式でキャストできるようになりました。
    </simpara>
 
    <informalexample>
@@ -237,8 +237,8 @@ print T1 . PHP_EOL;   // Prints "0"
 
    <constant>CURLINFO_HTTPAUTH_USED</constant> と
    <constant>CURLINFO_PROXYAUTH_USED</constant> は、
-   直近の転送で HTTP および、プロキシ経由の認証メソッドを示す情報を、
-   ビットマスクで返します。利用可能な値は、
+   直近のリクエストで使われた HTTP 認証方法とプロキシ認証方法を示す
+   ビットマスクを返します。利用可能な値は、
    <constant>CURLAUTH_<replaceable>*</replaceable></constant>
    を参照ください。
   </simpara>

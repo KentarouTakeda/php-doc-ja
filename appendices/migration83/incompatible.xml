@@ -44,9 +44,9 @@
   </sect3>
 
   <sect3 xml:id="migration83.incompatible.core.class-constant-visibility-check">
-   <title>クラス定数のアクセス権</title>
+   <title>クラス定数のアクセス権の関係チェック</title>
    <para>
-    クラス定数のアクセス権が、インターフェイスから継承した場合でも正しくチェックされるようになりました。
+    クラス定数のアクセス権の関係が、インターフェイスから継承した場合でも正しくチェックされるようになりました。
    </para>
   </sect3>
 
@@ -111,7 +111,7 @@
   <title>Phar</title>
 
   <para>
-   <classname>Phar</classname> クラスの定数が、型宣言するようになりました。
+   <classname>Phar</classname> クラスの定数の型が、宣言されるようになりました。
   </para>
  </sect2>
 
@@ -123,14 +123,14 @@
    <simplelist>
     <member><type>オブジェクト</type>や<type>リソース</type>、<type>配列</type>を境界の値として渡すと、<exceptionname>TypeError</exceptionname> がスローされるようになりました。</member>
     <member><parameter>step</parameter> に <literal>0</literal> を渡すと、よりわかりやすい <exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
-    <member>範囲が増加しているのに、<parameter>step</parameter> に負の値を渡すと、<exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
+    <member>増加する範囲に対して <parameter>step</parameter> に負の値を渡すと、<exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
     <member><parameter>step</parameter> が整数型として解釈できる float の場合、整数型として解釈するようになりました。</member>
     <member>引数のいずれかが無限大または NAN の場合、<exceptionname>ValueError</exceptionname> がスローされるようになりました。</member>
     <member><parameter>start</parameter> や <parameter>end</parameter> が空文字列の場合、<constant>E_WARNING</constant> が発生するようになりました。値そのものが <literal>0</literal> にキャストされる動作は変更されていません。</member>
     <member><parameter>start</parameter> や <parameter>end</parameter> が1バイトより長い場合、<constant>E_WARNING</constant> が発生するようになりました。但し、それが数値形式の文字列でない場合に限ります。</member>
-    <member><parameter>start</parameter> や <parameter>end</parameter> が整数型にキャストした値の場合、<constant>E_WARNING</constant> が発生するようになりました。なぜなら、他の境界の入力値は数値だからです。(例: <code>range(5, 'z');</code>)</member>
-    <member><parameter>step</parameter> が float の場合で、ある範囲の文字を生成しようとした場合、<constant>E_WARNING</constant> が発生するようになりました。但し、境界の値がともに数値形式の文字列の場合を除きます。(例: <code>range('5', '9', 0.5);</code>  のようなコードは、警告が発生しません)</member>
-    <member><function>range</function> 関数は、境界の値の一方が数字の場合、もう片方の境界の値を整数にキャストせず、文字のリストを生成するようになりました。(例: <code>range('9', 'A');</code>).</member>
+    <member><parameter>start</parameter> や <parameter>end</parameter> が整数型にキャストされる場合、<constant>E_WARNING</constant> が発生するようになりました。なぜなら、他の境界の入力値は数値だからです。(例: <code>range(5, 'z');</code>)</member>
+    <member>ある範囲の文字を生成しようとした際に <parameter>step</parameter> が float だった場合、<constant>E_WARNING</constant> が発生するようになりました。但し、境界の値がともに数値形式の文字列の場合を除きます。(例: <code>range('5', '9', 0.5);</code>  のようなコードは、警告が発生しません)</member>
+    <member><function>range</function> 関数は、境界の値の一方が数字の場合、もう片方の境界の値を整数にキャストせず、文字のリストを生成するようになりました。(例: <code>range('9', 'A');</code>)</member>
    </simplelist>
 
    <informalexample>
@@ -154,7 +154,7 @@ range('9', 'A');  // PHP 8.3.0 より前は、[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
   </para>
 
   <para>
-   <function>file</function> 関数の flags パラメータは、すべての不正な値をチェックするようになりました。注意すべきなのは、これより前のバージョンでは <constant>FILE_APPEND</constant> を黙って受け入れていましたが、このバージョンから受け入れなくなったことです。
+   <function>file</function> 関数の flags パラメータのエラーチェックが、すべての不正なフラグを検出するようになりました。注意すべきなのは、これより前のバージョンでは <constant>FILE_APPEND</constant> を黙って受け入れていましたが、このバージョンから受け入れなくなったことです。
   </para>
  </sect2>
 
@@ -162,7 +162,7 @@ range('9', 'A');  // PHP 8.3.0 より前は、[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
   <title>SNMP</title>
 
   <para>
-   <classname>SNMP</classname> クラスの定数が、型宣言するようになりました。
+   <classname>SNMP</classname> クラスの定数の型が、宣言されるようになりました。
   </para>
  </sect2>
 

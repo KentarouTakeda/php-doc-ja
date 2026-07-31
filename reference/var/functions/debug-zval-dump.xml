@@ -113,11 +113,11 @@ string(11) "Hello World" refcount(3)
       そして、元の値のリファレンスカウントがひとつ減ります。
      </member>
      <member>
-      リファレンス渡しされたり、リファレンスが代入されている値(
+      リファレンス渡しされたり、リファレンスが代入されている変数(
       <link linkend="language.references">リファレンスの説明</link> も参照ください)
       を追跡する用途にも使います。
-      この用途のリファレンスカウントは、
-      現在の値を指しているものとは別の、リファレンス用の zval に保存されています。
+      この用途のリファレンスカウントは、現在の値の zval を指す、
+      別個のリファレンス用 zval に保存されています。
       この追加の zval は、現状
       <function>debug_zval_dump</function> では見えません。
      </member>
@@ -160,7 +160,7 @@ string(11) "Hello World" refcount(2)
     <varname>$var1</varname>, <varname>$var2</varname>,
     <varname>$var3</varname> はリファレンスで結びついていますが、
     <emphasis>値</emphasis> だけが <function>debug_zval_dump</function> に渡されます。
-    この値は、リファレンスの設定に一度使われ、
+    この値は、リファレンスの集合によって一度使われ、
     <function>debug_zval_dump</function> の中で一度使われます。
     よって、リファレンスカウントは2になります。
    </para>
@@ -171,7 +171,7 @@ string(11) "Hello World" refcount(2)
     リファレンスカウントを全く表示しません。
     別の場合、このリファレンスカウントの値は、
     内部的に使われる追加のコピーの値を表示する場合もあります。
-    たとえば、文字列リテラルや配列が、命令セットの一部として保存されているような場合です。
+    たとえば、文字列リテラルや配列が、コードの命令の一部として保存されているような場合です。
    </para>
   </note>
  </refsect1>

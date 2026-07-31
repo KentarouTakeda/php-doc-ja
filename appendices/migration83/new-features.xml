@@ -102,7 +102,7 @@ echo $user_ini['listen']; // localhost:9000
   <title>CLI</title>
 
   <para>
-   複数のファイルの文法チェックを、一度にできるようになりました。
+   複数のファイルの構文チェックを、一度にできるようになりました。
   </para>
  </sect2>
 

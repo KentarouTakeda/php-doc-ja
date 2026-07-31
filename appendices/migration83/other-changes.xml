@@ -19,7 +19,7 @@
    <title>FPM</title>
 
    <para>
-    ソケットのパスの長さが OS がサポートする長さ以上の場合、FPM CLI のテストが失敗するようになりました。
+    ソケットのパスの長さが OS がサポートする長さを超える場合、FPM CLI のテストが失敗するようになりました。
    </para>
   </sect3>
 
@@ -27,7 +27,7 @@
    <title>Opcache</title>
 
    <para>
-    CLI SAPI と phpdbg SAPI では、<link linkend="ini.opcache.preload-user">opcache.preload_user</link> ディレクティブを設定しなくても root として事前ロードを実行できるようになりました。これら以外の SAPI では、root として事前ロードを実行する際に このディレクティブの設定が未だ必須です。なぜなら、SAPI が特権を持っていないユーザに移行する前に事前ロードが実行されるからです。
+    CLI SAPI と phpdbg SAPI では、<link linkend="ini.opcache.preload-user">opcache.preload_user</link> ディレクティブを設定しなくても root として事前ロードを実行できるようになりました。これら以外の SAPI では、root として事前ロードを実行する際に このディレクティブの設定が未だ必須です。なぜなら、SAPI が特権を持っていないユーザーに移行する前に事前ロードが実行されるからです。
    </para>
   </sect3>
 
@@ -35,7 +35,7 @@
    <title>Streams</title>
 
    <para>
-    ソケット接続をブロックする <function>fread</function> 関数は、バッファリングされているデータが存在した場合、追加のデータを待つのではなく、すぐに値を返すようになりました。
+    ソケット接続に対するブロッキングモードの <function>fread</function> 関数は、バッファリングされているデータが存在した場合、追加のデータを待つのではなく、すぐに値を返すようになりました。
    </para>
 
    <para>
@@ -216,7 +216,7 @@
    </para>
 
    <para>
-    <function>pg_insert</function> と <function>pg_convert</function> は、フィールドの値/タイプ が PostgreSQL の型と一致しない場合に、<constant>E_WARNING</constant> ではなく <classname>ValueError</classname> または <classname>TypeError</classname> を発生させるようになりました。
+    <function>pg_insert</function> と <function>pg_convert</function> は、フィールドの値や型が PostgreSQL の型と一致しない場合に、<constant>E_WARNING</constant> ではなく <classname>ValueError</classname> または <classname>TypeError</classname> を発生させるようになりました。
    </para>
 
    <simpara>
@@ -271,7 +271,7 @@
    </simpara>
 
    <simpara>
-    <function>proc_open</function> の <parameter>command</parameter> に配列を指定する場合、かつそれが不正なコマンドの場合に、後に警告が発生するリソースではなく &false; を返すようになりました。Windows では既にそのように動作していましたが、posix_spawn を使っている場合(ほとんどのプラットフォーム Linux, BSD, MacOS) でも同様の振る舞いをするようになりました。ただ、posix_spawn をサポートしていないために、以前の振る舞いが変更されていない古いプラットフォームもまだ残っています。
+    <function>proc_open</function> の <parameter>command</parameter> に配列を指定する場合、かつそれが不正なコマンドの場合に、後に警告が発生するリソースではなく &false; を返すようになりました。Windows では既にそのように動作していましたが、posix_spawn を使っている場合(ほとんどの Linux, BSD, MacOS プラットフォーム) でも同様の振る舞いをするようになりました。ただ、posix_spawn をサポートしていないために、以前の振る舞いが変更されていない古いプラットフォームもまだ残っています。
    </simpara>
 
    <para>
@@ -288,7 +288,7 @@
    </simpara>
 
    <para>
-    <function>str_getcsv</function> と <function>fgetcsv</function> は、最後のフィールドに終端されていないクォートだけが含まれている場合、null バイトの文字列をひとつ返すのではなく、空文字列を返すようになりました。
+    <function>str_getcsv</function> と <function>fgetcsv</function> は、最後のフィールドが、閉じられていないフィールド囲み文字だけの場合、null バイト 1 つの文字列ではなく、空文字列を返すようになりました。
    </para>
   </sect3>
 
@@ -329,7 +329,7 @@
    </para>
 
    <para>
-    SQLite のエラーコードは、エラーメッセージに含められるのではなく、例外に渡されるようになりました。
+    SQLite のエラーコードは、エラーメッセージに含められるのではなく、例外のエラーコードとして渡されるようになりました。
    </para>
 
   </sect3>
@@ -355,7 +355,7 @@
    </listitem>
    <listitem>
     <para>
-     <link linkend="ini.zend.max-allowed-stack-size">zend.max_allowed_stack_size</link> は、許可される最大のスタックサイズの値を設定するための、新しい INI ディレクティブです。設定できる値は、<literal>0</literal> (プロセスやスレッドの、スタックサイズの最大値を用います)、<literal>-1</literal> (無制限)、そしてバイト単位の正の数値です。デフォルトは <literal>0</literal> です。プロセスやスレッドのスタックサイズの最大値がわからない場合、既知のシステムのデフォルト値を使います。この値に大き過ぎる値を設定すると、スタックサイズの制限を無効にすることと同じ効果があります。ファイバーは 許可される最大のスタックサイズとして <link linkend="ini.fiber.stack-size">fiber.stack_size</link> の値を使います。プロセスのコールスタックが <link linkend="ini.zend.max-allowed-stack-size">zend.max_allowed_stack_size</link>-<link linkend="ini.zend.reserved-stack-size">zend.reserved_stack_size</link> バイトを超えると、スタックオーバーフローが引き起こすセグメンテーションフォルトを防ぐため、<classname>Error</classname> がスローされます。これは、デバッグを容易にすることが目的です。スタックサイズは、制御されていない再帰処理によって増加します。増加する範囲は、内部関数やマジックメソッド <link linkend="object.tostring">__toString()</link>, <link linkend="object.clone">__clone()</link>, <link linkend="object.sleep">__sleep()</link>, <link linkend="object.destruct">__destruct()</link> 内も含みます。この機能はスタックバッファのオーバーフローとは無関係ですし、セキュリティのための機能でもありません。
+     <link linkend="ini.zend.max-allowed-stack-size">zend.max_allowed_stack_size</link> は、許可される最大のスタックサイズの値を設定するための、新しい INI ディレクティブです。設定できる値は、<literal>0</literal> (プロセスやスレッドの、スタックサイズの最大値を用います)、<literal>-1</literal> (無制限)、そしてバイト単位の正の数値です。デフォルトは <literal>0</literal> です。プロセスやスレッドのスタックサイズの最大値がわからない場合、既知のシステムのデフォルト値を使います。この値に大き過ぎる値を設定すると、スタックサイズの制限を無効にすることと同じ効果があります。ファイバーは 許可される最大のスタックサイズとして <link linkend="ini.fiber.stack-size">fiber.stack_size</link> の値を使います。プロセスのコールスタックが <link linkend="ini.zend.max-allowed-stack-size">zend.max_allowed_stack_size</link>-<link linkend="ini.zend.reserved-stack-size">zend.reserved_stack_size</link> バイトを超えると、スタックオーバーフローが引き起こすセグメンテーションフォルトを防ぐため、<classname>Error</classname> がスローされます。これは、デバッグを容易にすることが目的です。スタックサイズは、内部関数やマジックメソッド <link linkend="object.tostring">__toString()</link>, <link linkend="object.clone">__clone()</link>, <link linkend="object.sleep">__sleep()</link>, <link linkend="object.destruct">__destruct()</link> が関わる制御されていない再帰処理によって増加します。この機能はスタックバッファのオーバーフローとは無関係ですし、セキュリティのための機能でもありません。
     </para>
    </listitem>
    <listitem>
