@@ -185,14 +185,14 @@
   <simpara>
    <function>curl_close</function> 関数は、推奨されなくなりました。
    <classname>CurlHandle</classname> オブジェクトが、
-   自動でリソースを開放するためです。
+   自動で解放されるためです。
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_curl_close -->
   </simpara>
 
   <simpara>
    <function>curl_share_close</function> 関数は、推奨されなくなりました。
    <classname>CurlShareHandle</classname> オブジェクトが、
-   自動でリソースを開放するためです。
+   自動で解放されるためです。
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_curl_share_close -->
   </simpara>
 
@@ -218,7 +218,7 @@
   <simpara>
    <function>finfo_close</function> 関数は、推奨されなくなりました。
    <classname>finfo</classname> オブジェクトが、
-   自動でリソースを開放するためです。
+   自動で解放されるためです。
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_finfo_close -->
   </simpara>
 
@@ -237,7 +237,7 @@
   <simpara>
    <function>imagedestroy</function> 関数は、推奨されなくなりました。
    <classname>GdImage</classname> オブジェクトが、
-   自動でリソースを開放するためです。
+   自動で解放されるためです。
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_imagedestroy -->
   </simpara>
 
@@ -537,7 +537,7 @@
   <simpara>
    <function>xml_parser_free</function> 関数は、推奨されなくなりました。
    <classname>XMLParser</classname> オブジェクトが、
-   自動でリソースを開放するためです。
+   自動で解放されるためです。
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_xml_parser_free -->
   </simpara>
 

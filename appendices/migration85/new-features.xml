@@ -248,7 +248,7 @@ print T1 . PHP_EOL;   // Prints "0"
    <constant>CURLOPT_INFILESIZE</constant> を安全に置き換えられる、
    <constant>CURLOPT_INFILESIZE_LARGE</constant> が追加されました。
    特定のシステムでは、たとえ 64bit システムであっても、
-   <constant>CURLOPT_INFILESIZE</constant> は 32bit の符号付き整数(2.0 Gib)
+   <constant>CURLOPT_INFILESIZE</constant> は、ファイルサイズとして 32bit の符号付き整数(2.0 GiB)
    しか受け入れない場合があります。
    <constant>CURLOPT_INFILESIZE_LARGE</constant> は、
    システムが扱える整数の最大値を受け入れます。
